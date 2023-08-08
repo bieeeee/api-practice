@@ -1,0 +1,9 @@
+.listContainer {
+  padding: 25px;
+}
+
+.listForm {
+  min-width: 120px !important;
+  margin-bottom: 30px;
+  margin-right: 15px !important;
+}
