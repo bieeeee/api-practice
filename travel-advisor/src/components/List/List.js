@@ -1,11 +1,12 @@
 import "./list.css";
 import { useState } from "react";
 import { CircularProgress, Grid, Typography, InputLabel, FormControl, MenuItem, Select } from "@mui/material";
+import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
 function List() {
   const [type, setType] = useState('restaurants');
   const [rating, setRating] = useState('');
-
+  const places = [{ name: "Yummy" }, { name: "Nom Nom" }, { name: "Best Resto" }]
 
   return (
     <div className="listContainer">
@@ -27,6 +28,13 @@ function List() {
           <MenuItem value={4.5}>Above 4.5</MenuItem>
         </Select>
       </FormControl>
+      <Grid container spacing={3} className="list">
+        {places?.map((place, i) => (
+          <Grid item key={i} xs={12}>
+            <PlaceDetails place={place} />
+          </Grid>
+        ))}
+      </Grid>
 
     </div>
   )
