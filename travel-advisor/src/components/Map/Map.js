@@ -30,6 +30,7 @@ function Map({ setCoordinates, setBounds, coordinates, places }) {
                     {place.name}
                   </Typography>
                   <img alt={place.name} className="pointer" src={place.photo ? place.photo.images.large.url : "https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg"} />
+                  <Rating size="small" value={Number(place.rating)} readOnly />
                 </Paper>
               )
             }
