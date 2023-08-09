@@ -4,6 +4,11 @@
 
 .listForm {
   min-width: 120px !important;
-  margin-bottom: 30px;
+  margin-bottom: 30px !important;
   margin-right: 15px !important;
+}
+
+.list {
+  height: 75vh;
+  overflow: auto;
 }

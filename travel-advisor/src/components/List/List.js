@@ -3,14 +3,13 @@ import { useState } from "react";
 import { CircularProgress, Grid, Typography, InputLabel, FormControl, MenuItem, Select } from "@mui/material";
 import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
-function List() {
+function List({ places }) {
   const [type, setType] = useState('restaurants');
   const [rating, setRating] = useState('');
-  const places = [{ name: "Yummy" }, { name: "Nom Nom" }, { name: "Best Resto" }]
 
   return (
     <div className="listContainer">
-      <h4>Restaurants, Hotels & Attractions around you</h4>
+      <Typography variant="h4">Restaurants, Hotels & Attractions around you</Typography>
       <FormControl className="listForm" variant="standard">
         <InputLabel id="type">Type</InputLabel>
         <Select value={type} id="type" onChange={(e) => setType(e.target.value)}>
