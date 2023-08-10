@@ -2,7 +2,10 @@ import "./placeDetails.css";
 import { Box, Typography, Button, Card, CardMedia, CardContent, CardActions, Chip, Rating } from "@mui/material";
 import { Phone, LocationOn } from "@mui/icons-material";
 
-function PlaceDetails({ place }) {
+function PlaceDetails({ place, selected, refProp }) {
+
+  if (selected) refProp?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+
   return (
     <Card elevation={6}>
       <CardMedia
