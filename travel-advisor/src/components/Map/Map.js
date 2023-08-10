@@ -2,9 +2,11 @@ import './map.css';
 import GoogleMapReact from 'google-map-react';
 import { Paper, Typography, useMediaQuery, Rating } from '@mui/material';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import { useState } from 'react';
 
-function Map({ setCoordinates, setBounds, coordinates, places }) {
+function Map({ setCoordinates, setBounds, coordinates, places, setChildClicked }) {
   const isDesktop = useMediaQuery('(min-width: 600px');
+
 
   return (
     <div className="mapContainer">
@@ -18,12 +20,13 @@ function Map({ setCoordinates, setBounds, coordinates, places }) {
           setCoordinates({ lat: e.center.lat, lng: e.center.lng })
           setBounds({ sw: e.marginBounds.sw, ne: e.marginBounds.ne })
         }}
+        onChildClick={(child) => setChildClicked(child)}
       >
-        {places?.map((place, i)=>(
+        {places?.map((place, i) => (
           <div className="markerContainer" lat={Number(place.latitude)} lng={Number(place.longitude)} key={i}>
             {
               !isDesktop ? (
-                <LocationOnOutlinedIcon color="primary" fontSize="large"/>
+                <LocationOnOutlinedIcon color="primary" fontSize="large" />
               ) : (
                 <Paper elevation={3} className="paper">
                   <Typography className="typography" variant="subtitle2" gutterBottom>
