@@ -3,7 +3,7 @@ import { Autocomplete } from '@react-google-maps/api';
 import SearchIcon from '@mui/icons-material/Search';
 import { useState } from 'react';
 
-function Header({ setCoordinates }) {
+function Header({ setCoordinates, weatherData }) {
   const [autocomplete, setAutocomplete] = useState();
   const onLoad = (autoC) => setAutocomplete(autoC);
   const onPlaceChanged = () => {
@@ -17,6 +17,7 @@ function Header({ setCoordinates }) {
     <div className="navbar">
       <div className="navContainer">
         <a href="/" className='logo'>Travel Advisor</a>
+        <h4>{weatherData}</h4>
         <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
           <div className='searchContainer'>
             <SearchIcon />
